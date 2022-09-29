@@ -1,6 +1,5 @@
 import * as React from 'react'
 import type { TextStyle, ViewStyle } from 'react-native'
-import { en } from 'rn-emoji-keyboard'
 import {
   CategoryTranslation,
   EmojiType,
@@ -64,7 +63,7 @@ export type KeyboardProps = {
     highestMeasuredFrameIndex: number
     averageItemLength: number
   }) => void
-  translation: CategoryTranslation | undefined
+  translation?: CategoryTranslation
   disabledCategories?: CategoryTypes[]
   enableRecentlyUsed?: boolean
   categoryPosition?: CategoryPosition
@@ -135,7 +134,19 @@ export const defaultKeyboardContext: Required<KeyboardProps> & { theme: Theme; s
   onCategoryChangeFailed: (info) => {
     console.warn(info)
   },
-  translation: en ? en : undefined,
+  translation: {
+    recently_used: 'Recently used',
+  smileys_emotion: 'Smileys & Emotion',
+  people_body: 'People & Body',
+  animals_nature: 'Animals & Nature',
+  food_drink: 'Food & Drink',
+  travel_places: 'Travel & Places',
+  activities: 'Activities',
+  objects: 'Objects',
+  symbols: 'Symbols',
+  flags: 'Flags',
+  search: 'Search'
+  },
   disabledCategories: [],
   enableRecentlyUsed: false,
   categoryPosition: 'floating',
